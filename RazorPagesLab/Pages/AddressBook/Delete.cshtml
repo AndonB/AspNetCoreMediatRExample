@@ -1,0 +1,20 @@
+﻿@page "{id:guid}"
+@model RazorPagesLab.Pages.AddressBook.DeleteModel
+@{
+    ViewData["Title"] = "Delete Address";
+}
+
+<h1>Delete Entry</h1>
+
+<p>This address is about to be deleted. Confirm? or Cancel?</p>
+
+<p>
+    @Model.Entry.Line1<br />
+    @Model.Entry.Line2<br />
+    @($"{Model.Entry.City}, {Model.Entry.State} {Model.Entry.PostalCode}")
+</p>
+
+<form asp-page="Delete" asp-route-id="@Model.Entry.Id" method="post">
+    <button type="submit" class="btn btn-danger">Confirm, Delete</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>
